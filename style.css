@@ -24,6 +24,8 @@ span {
     padding: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
+	border-radius: 10px;
+	background-color: #111;
 }
 
 /* sub-spans */
