@@ -37,6 +37,10 @@ span {
 
 /* img stuff */
 
+.logo {
+	height: 125px;
+}
+
 .individual_trophy {
     height: 125px;
 	margin-left: 8px;
