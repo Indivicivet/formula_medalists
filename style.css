@@ -52,6 +52,9 @@ span {
 
 .total_km_number {
     font-size: 48pt;
+
+.total_step_number {
+	font-size: 36pt;
 }
 
 .days_reached {
