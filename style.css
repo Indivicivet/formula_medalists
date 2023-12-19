@@ -5,9 +5,12 @@ body {
 div {
     border: 1px solid black; /* early layout */
     margin: 5px;
+    text-align: center;
 }
 
 span {
     border: 1px solid red;
     margin: 3px;
+    display: inline-block;
 }
+
