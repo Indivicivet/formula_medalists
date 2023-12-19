@@ -1,7 +1,7 @@
 body {
     background-color: #222;
     color: #DDD;
-    font-size: 32pt;
+    font-size: 24pt;
     font-family: Roboto;
     font-weight: 600;
 }
@@ -20,8 +20,8 @@ span {
 /* big divs */
 
 .bigdiv {
-    border: 5px solid #CCC;
-    padding: 20px;
+    border: 3px solid #CCC;
+    padding: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -47,16 +47,17 @@ span {
 }
 
 .speed_point_number {
-    font-size: 48pt;
+    font-size: 42pt;
 }
 
 .total_km_number {
-    font-size: 48pt;
+    font-size: 42pt;
+}
 
 .total_step_number {
 	font-size: 36pt;
 }
 
 .days_reached {
-    font-size: 48pt;
+    font-size: 42pt;
 }
