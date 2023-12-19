@@ -6,6 +6,9 @@ div {
     border: 1px solid black; /* early layout */
     margin: 5px;
     text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 span {
