@@ -1,5 +1,9 @@
 body {
+    background-color: #222;
+    color: #DDD;
     font-size: 40pt;
+    font-family: Roboto;
+    font-weight: 600;
 }
 
 div {
