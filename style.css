@@ -26,18 +26,30 @@ span {
     margin-bottom: 10px;
 }
 
+/* sub-spans */
+
+.subvcenter {
+	display: flex;
+	align-items: center;
+}
+
 /* img stuff */
 
 .individual_trophy {
     height: 125px;
+	margin-left: 8px;
+	margin-bottom: 8px;
 }
 
 .team_trophy {
     height: 100px;
+	margin-left: 8px;
 }
 
 .medal {
     height: 75px;
+	margin-left: 8px;
+	margin-bottom: 8px;
 }
 
 /* numbers/text format */
@@ -46,18 +58,16 @@ span {
     font-size: 60pt;
 }
 
-.speed_point_number {
+.medbignumber {
     font-size: 42pt;
-}
-
-.total_km_number {
-    font-size: 42pt;
+	margin-left: 8px;
 }
 
 .total_step_number {
 	font-size: 36pt;
+	margin-left: 8px;
 }
 
-.days_reached {
-    font-size: 42pt;
+.medal_no {
+	margin-left: 12px;
 }
