@@ -1,7 +1,7 @@
 body {
     background-color: #222;
     color: #DDD;
-    font-size: 24pt;
+    font-size: 22pt;
     font-family: Roboto;
     font-weight: 600;
 }
@@ -42,12 +42,12 @@ span {
 }
 
 .team_trophy {
-    height: 100px;
+    height: 80px;
 	margin-left: 8px;
 }
 
 .medal {
-    height: 75px;
+    height: 64px;
 	margin-left: 8px;
 	margin-bottom: 8px;
 }
@@ -55,16 +55,23 @@ span {
 /* numbers/text format */
 
 .name {
-    font-size: 60pt;
+    font-size: 48pt;
+	margin-right: 20px;
+}
+
+.team_name {
+	font-size: 32pt;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .medbignumber {
-    font-size: 42pt;
+    font-size: 36pt;
 	margin-left: 8px;
 }
 
 .total_step_number {
-	font-size: 36pt;
+	font-size: 32pt;
 	margin-left: 8px;
 }
 
