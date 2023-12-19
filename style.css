@@ -26,6 +26,20 @@ span {
     margin-bottom: 10px;
 }
 
+/* img stuff */
+
+.individual_trophy {
+    height: 125px;
+}
+
+.team_trophy {
+    height: 100px;
+}
+
+.medal {
+    height: 75px;
+}
+
 /* numbers/text format */
 
 .name {
