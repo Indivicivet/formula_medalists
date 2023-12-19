@@ -21,3 +21,14 @@ span {
     display: inline-block;
 }
 
+.speed_point_number {
+    font-size: 60pt;
+}
+
+.total_km_number {
+    font-size: 60pt;
+}
+
+.days_reached {
+    font-size: 60pt
+}
