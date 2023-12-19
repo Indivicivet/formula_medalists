@@ -26,6 +26,8 @@ span {
 .bigdiv {
     border: 5px solid #CCC;
     padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* numbers/text format */
