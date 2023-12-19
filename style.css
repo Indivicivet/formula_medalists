@@ -28,6 +28,10 @@ span {
 
 /* numbers/text format */
 
+.name {
+    font-size: 60pt;
+}
+
 .speed_point_number {
     font-size: 48pt;
 }
