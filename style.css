@@ -4,4 +4,10 @@ body {
 
 div {
     border: 1px solid black; /* early layout */
+    margin: 5px;
+}
+
+span {
+    border: 1px solid red;
+    margin: 3px;
 }
