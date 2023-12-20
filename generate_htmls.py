@@ -32,13 +32,12 @@ def generate_html(
 ):
     rank = int(rank)
     team_rank = int(team_rank)
-    distance = int(distance)
-    days = int(days)
-    if steps:
-        steps = int(steps)
-    golds = int(golds)
-    silvers = int(silvers)
-    bronzes = int(bronzes)
+    distance = int(distance or 0)
+    days = int(days or 0)
+    steps = int(steps or 0)
+    golds = int(golds or 0)
+    silvers = int(silvers or 0)
+    bronzes = int(bronzes or 0)
     speed_points = 5 * golds + 3 * silvers + 1 * bronzes
     speed_section = (
         f"""<div class="speed_points subvcenter">
@@ -131,8 +130,13 @@ def generate_html(
 
 
 if __name__ == "__main__":
+    import csv
     from pathlib import Path
 
     out_folder = Path(__file__).parent / "out"
     out_folder.mkdir(exist_ok=True)
-    (out_folder / "test_out.html").write_text(generate_html("John", 7, "Fastbois", 3, 163, 15, 117300, 1, 2, 3))
+    with open("data_example.csv") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            print(f"processing {row['name']}")
+            (out_folder / f"{row['name']}.html").write_text(generate_html(**row))
