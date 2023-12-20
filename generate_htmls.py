@@ -47,12 +47,29 @@ def generate_html(
         if speed_points > 0
         else ""
     )
+    maybe_distance = (
+        f"""<div class="total_km subvcenter">
+            Total distance:
+            <span class="medbignumber total_km_number">{distance}km</span>
+        </div>"""
+        if distance
+        else ""
+    )
     maybe_12_day_medal = (
         """
         <img class="medal medal_xmas12"
             src="medal_12daysofxmas.png" alt="12 Days of Christmas">
         """
         if days >= 12
+        else ""
+    )
+    maybe_days = (
+        f"""<div class="attainment_days subvcenter">
+            Target reached:
+            <span class="medbignumber days_reached">{days} days</span>
+            {maybe_12_day_medal}
+        </div>"""
+        if days
         else ""
     )
     maybe_steps = (
@@ -114,14 +131,8 @@ def generate_html(
 </div>
 
 <div class="totals bigdiv">
-    <div class="total_km subvcenter">
-        Total distance: <span class="medbignumber total_km_number">{distance}km</span>
-    </div>
-    <div class="attainment_days subvcenter">
-        Target reached:
-        <span class="medbignumber days_reached">{days} days</span>
-        {maybe_12_day_medal}
-    </div>
+    {maybe_distance}
+    {maybe_days}
     {maybe_steps}
 </div>
 
