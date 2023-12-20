@@ -88,8 +88,9 @@ def generate_html(
 <body>
 <div id="everything">
 
-<div class="generic_head">
+<div class="generic_head subvcenter">
     <img class="logo" src="logo.png">
+    <span class="run_year"><span class="run_white">20</span>23</span>
 </div>
 
 <div class="standings bigdiv">

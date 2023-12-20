@@ -60,6 +60,16 @@ span {
 
 /* numbers/text format */
 
+.run_year {
+	color: #FF0000;
+	font-size: 48pt;
+	margin-left: 10px;
+}
+
+.run_white {
+	color: #FFFFFF;
+}
+
 .name {
     font-size: 48pt;
 	margin-right: 20px;
