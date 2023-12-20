@@ -58,7 +58,7 @@ def generate_html(
     )
     maybe_steps = (
         f"""<div class="total_steps subvcenter">
-            Total steps: <span class="total_step_number">{steps}</span>
+            Total steps: <span class="total_step_number">{steps:,}</span>
         </div>"""
         if steps > 0
         else ""
