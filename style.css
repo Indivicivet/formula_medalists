@@ -6,6 +6,10 @@ body {
     font-weight: 600;
 }
 
+#everything {
+	padding: 10px;
+}
+
 div {
     text-align: center;
     width: fit-content;
