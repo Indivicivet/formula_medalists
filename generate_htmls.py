@@ -86,6 +86,8 @@ def generate_html(
 </head>
 
 <body>
+<div id="everything">
+
 <div class="generic_head">
     <img class="logo" src="logo.png">
 </div>
@@ -124,6 +126,7 @@ def generate_html(
 
 {maybe_medal_case}
 
+</div>
 </body>
 </html>
 """
@@ -133,10 +136,25 @@ if __name__ == "__main__":
     import csv
     from pathlib import Path
 
+    from selenium import webdriver
+    from Screenshot import Screenshot  # pip install Selenium-Screenshot
+
+    screenshot = Screenshot.Screenshot()
+    chrome = webdriver.Chrome()
+
     out_folder = Path(__file__).parent / "out"
     out_folder.mkdir(exist_ok=True)
     with open("data_example.csv") as f:
         reader = csv.DictReader(f)
         for row in reader:
             print(f"processing {row['name']}")
-            (out_folder / f"{row['name']}.html").write_text(generate_html(**row))
+            out_file = Path(__file__).parent / ".~temp_working.html"
+            out_file.write_text(generate_html(**row))
+            chrome.get(str(out_file.resolve()))
+            screenshot.get_element(
+                chrome,
+                chrome.find_element(webdriver.common.by.By.ID, "everything"),
+                save_path=str(Path(__file__).parent / "out"),
+                image_name=f"{row['name']}.png"
+            )
+    chrome.close()
