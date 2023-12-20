@@ -7,6 +7,17 @@ def get_trophy_type(rank):
     )
 
 
+def get_medal_row(count, medal_name):
+    return (
+        '<div class="medal_row subvcenter">\n'
+        + f'<img class="medal {medal_name}" src="{medal_name}.png">' * count
+        + f"""
+                <span class="medal_no">x{count}</span>
+            </div>"""
+        if count else ""
+    )
+
+
 def generate_html(
     name,
     rank,
@@ -50,6 +61,22 @@ def generate_html(
             Total steps: <span class="total_step_number">{steps}</span>
         </div>"""
         if steps > 0
+        else ""
+    )
+    medals_golds = get_medal_row(golds, "medal_gold")
+    medals_silvers = get_medal_row(silvers, "medal_silver")
+    medals_bronzes = get_medal_row(bronzes, "medal_bronze")
+    maybe_medal_case = (
+        f"""
+<div class="medal_case bigdiv">
+    <div class="medals">
+        {medals_golds}
+        {medals_silvers}
+        {medals_bronzes}
+    </div>
+    {speed_section}
+</div>"""
+        if golds or bronzes or silvers
         else ""
     )
     return f"""
@@ -96,32 +123,7 @@ def generate_html(
     {maybe_steps}
 </div>
 
-<div class="medal_case bigdiv">
-    <div class="medals">
-        <div class="medal_row subvcenter">
-            <img class="medal medal_gold" src="medal_gold.png">
-            <img class="medal medal_gold" src="medal_gold.png">
-            <img class="medal medal_gold" src="medal_gold.png">
-            <span class="medal_no">x3</span>
-        </div>
-        <div class="medal_row subvcenter">
-            <img class="medal medal_silver" src="medal_silver.png">
-            <img class="medal medal_silver" src="medal_silver.png">
-            <img class="medal medal_silver" src="medal_silver.png">
-            <img class="medal medal_silver" src="medal_silver.png">
-            <img class="medal medal_silver" src="medal_silver.png">
-            <img class="medal medal_silver" src="medal_silver.png">
-            <img class="medal medal_silver" src="medal_silver.png">
-            <img class="medal medal_silver" src="medal_silver.png">
-            <span class="medal_no">x8</span>
-        </div>
-        <div class="medal_row subvcenter">
-            <img class="medal medal_bronze" src="medal_bronze.png">
-            <span class="medal_no">x1</span>
-        </div>
-    </div>
-    {speed_section}
-</div>
+{maybe_medal_case}
 
 </body>
 </html>
@@ -133,4 +135,4 @@ if __name__ == "__main__":
 
     out_folder = Path(__file__).parent / "out"
     out_folder.mkdir(exist_ok=True)
-    (out_folder / "test_out.html").write_text(generate_html("John", 7, "Fastbois", 3, 163, 15, 117300, 3, 8, 1))
+    (out_folder / "test_out.html").write_text(generate_html("John", 7, "Fastbois", 3, 163, 15, 117300, 1, 2, 3))
