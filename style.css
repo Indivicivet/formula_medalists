@@ -27,8 +27,8 @@ span {
     border: 3px solid #CCC;
     padding: 15px;
     margin-top: 10px;
-    margin-bottom: 10px;
-	border-radius: 10px;
+    margin-bottom: 0px;
+	border-radius: 30px;
 	background-color: #111;
 }
 
