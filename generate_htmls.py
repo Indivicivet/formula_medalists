@@ -1,9 +1,9 @@
-def get_trophy_type(rank):
-    return (
-        "trophy_gold" if rank == 1
-        else "trophy_silver" if rank == 2
-        else "trophy_bronze" if rank == 3
-        else "trophy_participation"
+def get_rank_type(rank, is_trophy=True):
+    return ("trophy" if is_trophy else "medal") + (
+        "_gold" if rank == 1
+        else "_silver" if rank == 2
+        else "_bronze" if rank == 3
+        else "_participation"
     )
 
 
@@ -29,6 +29,8 @@ def generate_html(
     golds,
     silvers,
     bronzes,
+    distance_rank=None,
+    step_rank=None,
 ):
     rank = int(rank)
     team_rank = int(team_rank)
@@ -38,6 +40,8 @@ def generate_html(
     golds = int(golds or 0)
     silvers = int(silvers or 0)
     bronzes = int(bronzes or 0)
+    distance_rank = int(distance_rank or 0)
+    step_rank = int(step_rank or 0)
     speed_points = 5 * golds + 3 * silvers + 1 * bronzes
     speed_section = (
         f"""<div class="speed_points subvcenter">
@@ -47,10 +51,17 @@ def generate_html(
         if speed_points > 0
         else ""
     )
+    maybe_distance_medal = (
+        f'<img class="medal {get_rank_type(distance_rank, False)}"'
+        f' src="{get_rank_type(distance_rank, False)}.png">'
+        if distance_rank in [1, 2, 3]
+        else ""
+    )
     maybe_distance = (
         f"""<div class="total_km subvcenter">
             Total distance:
             <span class="medbignumber total_km_number">{distance}km</span>
+            {maybe_distance_medal}
         </div>"""
         if distance
         else ""
@@ -72,9 +83,17 @@ def generate_html(
         if days
         else ""
     )
+    maybe_step_medal = (
+        f'<img class="medal {get_rank_type(step_rank, False)}"'
+        f' src="{get_rank_type(step_rank, False)}.png">'
+        if step_rank in [1, 2, 3]
+        else ""
+    )
     maybe_steps = (
         f"""<div class="total_steps subvcenter">
-            Total steps: <span class="total_step_number">{steps:,}</span>
+            Total steps:
+            <span class="total_step_number">{steps:,}</span>
+            {maybe_step_medal}
         </div>"""
         if steps > 0
         else ""
@@ -114,8 +133,8 @@ def generate_html(
     <div class="individual subvcenter">
         <span class="name">{name}</span>
         <span class="rank subvcenter">
-            <img class="individual_trophy {get_trophy_type(rank)}"
-                src="{get_trophy_type(rank)}.png">
+            <img class="individual_trophy {get_rank_type(rank)}"
+                src="{get_rank_type(rank)}.png">
             <span class="rank_number medbignumber">#{rank}</span>
         </span>
     </div>
@@ -123,8 +142,8 @@ def generate_html(
     <div class="team subvcenter">
         Team: <span class="team_name">{team}</span>
         <span class="team_rank subvcenter">
-            <img class="team_trophy {get_trophy_type(team_rank)}"
-                src="{get_trophy_type(team_rank)}.png">
+            <img class="team_trophy {get_rank_type(team_rank)}"
+                src="{get_rank_type(team_rank)}.png">
             <span class="team_rank_number medbignumber">#{team_rank}</span>
         </span>
     </div>
