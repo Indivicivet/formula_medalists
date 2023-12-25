@@ -186,6 +186,6 @@ if __name__ == "__main__":
                 chrome,
                 chrome.find_element(webdriver.common.by.By.ID, "everything"),
                 save_path=str(Path(__file__).parent / "out"),
-                image_name=f"{row['name']}.png"
+                image_name=f"{row['rank']}_{row['name']}.png"
             )
     chrome.close()
