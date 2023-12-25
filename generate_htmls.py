@@ -32,8 +32,8 @@ def generate_html(
     distance_rank=None,
     step_rank=None,
 ):
-    rank = int(rank)
-    team_rank = int(team_rank)
+    rank = int(rank or 999)
+    team_rank = int(team_rank or 999)
     distance = int(distance or 0)
     days = int(days or 0)
     steps = int(steps or 0)
